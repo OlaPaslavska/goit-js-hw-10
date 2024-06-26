@@ -4,7 +4,7 @@ import "izitoast/dist/css/iziToast.min.css";
 const form = document.querySelector('.form');
 
 form.addEventListener('submit', function(event) {
-  event.preventDefault();
+  event.preventDefault(); //Зупиняє стандартну подію submit
 
   const delayInput = document.querySelector('input[name="delay"]');
   const delay = parseInt(delayInput.value); // Затримка в мілісекундах

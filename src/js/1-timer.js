@@ -2,8 +2,7 @@
 
 import flatpickr from "flatpickr";
 import iziToast from "izitoast";
-// import "~flatpickr/dist/flatpickr.min.css";
-// import "~izitoast/dist/css/iziToast.min.css";
+
 // Оголошуємо змінні для елементів DOM і функцій.
 
 
@@ -17,11 +16,11 @@ const timerElements = {
 };
 
 let countdownInterval;
-
+// addLeadingZero форматує числа з менше ніж двох цифр, додаючи 0 спереду.
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
 }
-
+// convertMs перетворює мілісекунди в дні, години, хвилини та секунди.
 function convertMs(ms) {
   const second = 1000;
   const minute = second * 60;
@@ -35,7 +34,7 @@ function convertMs(ms) {
 
   return { days, hours, minutes, seconds };
 }
-
+// updateTimerUI оновлює інтерфейс таймера з використанням значень днів, годин, хвилин і секунд.
 function updateTimerUI(ms) {
   const { days, hours, minutes, seconds } = convertMs(ms);
   timerElements.days.textContent = addLeadingZero(days);
@@ -43,7 +42,7 @@ function updateTimerUI(ms) {
   timerElements.minutes.textContent = addLeadingZero(minutes);
   timerElements.seconds.textContent = addLeadingZero(seconds);
 }
-
+// startTimer запускає таймер зворотного відліку до обраної дати, оновлюючи інтерфейс кожну секунду.
 function startTimer(targetDate) {
   clearInterval(countdownInterval);
 
@@ -65,7 +64,7 @@ function startTimer(targetDate) {
     }
   }, 1000);
 }
-
+// flatpickr налаштовує поле вибору дати, обмежує вибір майбутніх дат і показує помилку, якщо користувач обрав минулу дату.
 flatpickr(datetimePicker, {
   enableTime: true,
   time_24hr: true,
@@ -85,7 +84,7 @@ flatpickr(datetimePicker, {
     }
   }
 });
-
+// Обробник подій для кнопки startBtn запускає таймер, вимикає поля вводу і кнопку Start, оновлює інтерфейс таймера, і відображає повідомлення, коли таймер завершується.
 startBtn.addEventListener('click', () => {
   const selectedDate = flatpickr.parseDate(datetimePicker.value);
   datetimePicker.disabled = true;
