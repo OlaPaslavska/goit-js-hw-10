@@ -1,7 +1,9 @@
 :root {
   font-family: 'Montserat', sans-serif;
 }
-
+.initial-page {
+  padding-top: 20px;
+}
 .container {
   display: flex;
   flex-direction: column;
