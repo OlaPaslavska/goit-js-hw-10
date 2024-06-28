@@ -69,6 +69,7 @@ button:hover {
 .field {
   display: flex;
   flex-flow: column;
+  row-gap: 24px;
   font-size: 28px;
 }
 .value {
