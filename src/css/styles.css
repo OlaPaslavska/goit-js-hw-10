@@ -63,14 +63,13 @@ button:hover {
 .timer {
   gap: 24px;
   margin: 10px;
-  width: 20%;
+  /* width: 20%; */
   display: flex;
   justify-content: space-between;
 }
 .field {
   display: flex;
   flex-flow: column;
-
   font-size: 28px;
 }
 .value {
