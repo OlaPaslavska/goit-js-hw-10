@@ -70,7 +70,8 @@ function startTimer(targetDate) {
 flatpickr(datetimePicker, {
   enableTime: true,
   time_24hr: true,
-  minDate: "today",
+  defaultDate: new Date(),
+  minuteIncrement: 1,
   onClose(selectedDates) {
     const selectedDate = selectedDates[0];
 
