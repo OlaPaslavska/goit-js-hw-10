@@ -1,6 +1,64 @@
-@import '~flatpickr/dist/flatpickr.min.css';
-@import '~izitoast/dist/css/iziToast.min.css';
+/* @import '~flatpickr/dist/flatpickr.min.css';
+@import '~izitoast/dist/css/iziToast.min.css'; */
+:root {
+  font-family: 'Montserat', sans-serif;
+}
 
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-weight: 400px;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+button {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 75px;
+  height: 40px;
+  background: #4e75ff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #fff;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #cfcfcf;
+  color: #989898;
+}
+button:hover {
+  background: #6c8cff;
+}
+#datetime-picker:disabled {
+  border: 1px solid #808080;
+}
+
+#datetime-picker {
+  border-radius: 8px;
+  width: 270px;
+  height: 40px;
+  background: #fff;
+  border: 1px solid #808080;
+  font-size: 20px;
+  text-align: center;
+  color: #808080;
+}
+
+#datetime-picker:hover {
+  border: 1px solid #000;
+}
+
+#datetime-picker:active {
+  border: 1px solid #4e75ff;
+}
 .timer {
   margin: 10px;
   width: 20%;
