@@ -61,6 +61,7 @@ button:hover {
   display: block;
 }
 .timer {
+  gap: 24px;
   margin: 10px;
   width: 20%;
   display: flex;
@@ -69,7 +70,7 @@ button:hover {
 .field {
   display: flex;
   flex-flow: column;
-  row-gap: 24px;
+
   font-size: 28px;
 }
 .value {
