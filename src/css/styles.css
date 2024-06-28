@@ -42,8 +42,8 @@ button:hover {
 }
 
 #datetime-picker {
-  border-radius: 8px;
-  width: 270px;
+  border-radius: 4px;
+  width: 272px;
   height: 40px;
   background: #fff;
   border: 1px solid #808080;
@@ -58,6 +58,9 @@ button:hover {
 
 #datetime-picker:active {
   border: 1px solid #4e75ff;
+}
+.input-start {
+  display: block;
 }
 .timer {
   margin: 10px;
