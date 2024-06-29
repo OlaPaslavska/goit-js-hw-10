@@ -96,7 +96,7 @@ flatpickr(datetimePicker, {
 });
 // Обробник подій для кнопки startBtn запускає таймер, вимикає поля вводу і кнопку Start, оновлює інтерфейс таймера, і відображає повідомлення, коли таймер завершується.
 startBtn.addEventListener('click', () => {
-  const selectedDate = flatpickr.parseDate(datetimePicker.value);
+  selectedDate = flatpickr.parseDate(datetimePicker.value);
   datetimePicker.disabled = true;
   startBtn.disabled = true;
   startTimer(selectedDate);
