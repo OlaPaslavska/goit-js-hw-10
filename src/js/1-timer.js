@@ -31,8 +31,8 @@ function convertMs(ms) {
 
   const days = Math.floor(ms / day);
   const hours = Math.floor((ms % day) / hour);
-  const minutes = Math.floor((ms % hour) / minute);
-  const seconds = Math.floor((ms % minute) / second);
+  const minutes = Math.floor(((ms % day) % hour) / minute);
+  const seconds = Math.floor((((ms % day) % hour) % minute) / second);
 
   return { days, hours, minutes, seconds };
 }
@@ -73,6 +73,7 @@ flatpickr(datetimePicker, {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
+    
     const selectedDate = selectedDates[0];
 
     if (selectedDate < new Date()) {
