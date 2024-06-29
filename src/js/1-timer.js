@@ -18,7 +18,7 @@ const timerElements = {
 };
 
 let countdownInterval;
-let userselectedDate;
+let selectedDate;
 // addLeadingZero форматує числа з менше ніж двох цифр, додаючи 0 спереду.
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
@@ -51,11 +51,11 @@ function updateTimerUI(ms) {
 function startTimer(targetDate) {
   clearInterval(countdownInterval);
 
-  // const targetTime = targetDate.getTime();
+  const targetTime = targetDate.getTime();
 
   countdownInterval = setInterval(() => {
     const now = new Date().getTime();
-    const distance = targetDate - now;
+    const distance = targetTime - now;
 
     if (distance <= 0) {
       clearInterval(countdownInterval);
@@ -80,9 +80,9 @@ flatpickr(datetimePicker, {
   onClose(selectedDates) {
     // Оновлення глобальної змінної selectedDate
 
-   userselectedDate = selectedDates[0];
+   selectedDate = selectedDates[0];
 
-    if (userselectedDate < new Date()) {
+    if (selectedDate < new Date()) {
       iziToast.error({
         title: 'Error!',
         message: 'Please choose a future date.',
@@ -96,7 +96,7 @@ flatpickr(datetimePicker, {
 });
 // Обробник подій для кнопки startBtn запускає таймер, вимикає поля вводу і кнопку Start, оновлює інтерфейс таймера, і відображає повідомлення, коли таймер завершується.
 startBtn.addEventListener('click', () => {
-  // selectedDate = flatpickr.parseDate(datetimePicker.value);
+  
   datetimePicker.disabled = true;
   startBtn.disabled = true;
   startTimer(selectedDate);
