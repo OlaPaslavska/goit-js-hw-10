@@ -51,11 +51,11 @@ function updateTimerUI(ms) {
 function startTimer(targetDate) {
   clearInterval(countdownInterval);
 
-  const targetTime = targetDate.getTime();
+  // const targetTime = targetDate.getTime();
 
   countdownInterval = setInterval(() => {
     const now = new Date().getTime();
-    const distance = targetTime - now;
+    const distance = targetDate - now;
 
     if (distance <= 0) {
       clearInterval(countdownInterval);
