@@ -18,6 +18,7 @@ const timerElements = {
 };
 
 let countdownInterval;
+let selectedDate;
 // addLeadingZero форматує числа з менше ніж двох цифр, додаючи 0 спереду.
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
@@ -33,16 +34,18 @@ function convertMs(ms) {
   const hours = Math.floor((ms % day) / hour);
   const minutes = Math.floor(((ms % day) % hour) / minute);
   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
+ 
 
-  return { days, hours, minutes, seconds };
+  return { days, hours, minutes, seconds};
 }
 // updateTimerUI оновлює інтерфейс таймера з використанням значень днів, годин, хвилин і секунд.
 function updateTimerUI(ms) {
-  const { days, hours, minutes, seconds } = convertMs(ms);
+  const { days, hours, minutes, seconds} = convertMs(ms);
   timerElements.days.textContent = addLeadingZero(days);
   timerElements.hours.textContent = addLeadingZero(hours);
   timerElements.minutes.textContent = addLeadingZero(minutes);
   timerElements.seconds.textContent = addLeadingZero(seconds);
+ 
 }
 // startTimer запускає таймер зворотного відліку до обраної дати, оновлюючи інтерфейс кожну секунду.
 function startTimer(targetDate) {
@@ -75,8 +78,9 @@ flatpickr(datetimePicker, {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    
-    const selectedDate = selectedDates[0];
+    // Оновлення глобальної змінної selectedDate
+
+   selectedDate = selectedDates[0];
 
     if (selectedDate < new Date()) {
       iziToast.error({
